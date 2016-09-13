@@ -1,0 +1,52 @@
+#
+# Build configuration for Circle CI
+#
+general:
+  artifacts:
+    - "app/build/outputs/apk"
+    - "app/build/reports/tests"
+    - "app/build/outputs/androidTest-results"
+
+machine:
+  timezone:
+    America/Los_Angeles
+  java:
+    version: oraclejdk8
+  environment:
+        ANDROID_HOME: /usr/local/android-sdk-linux
+
+dependencies:
+  cache_directories:
+    - ~/.android
+    - ~/android
+    - $ANDROID_HOME/build-tools
+    - $ANDROID_HOME/extras
+    - $ANDROID_HOME/installed-dependencies
+  override:
+    - source environmentSetup.sh && copy_env_vars_to_gradle_properties
+    - source environmentSetup.sh && get_android_sdk
+    # just do a debug assemble here and it also grabs all project dependencies into ~/.gradle
+    - ./gradlew assembleDebug -PdisablePreDex
+
+test:
+  pre:
+    # disabling emulator until we have android connected tests worth running
+    # start emulator but keep doing other stuff in parallel
+    #- emulator -avd testAVD -no-audio -no-window:
+    #    background: true
+    #    parallel: true
+    # run lint and CheckStyles (also depends on test, so those run)
+    - ./gradlew check
+    # no need to wait for AVD since we never started one up
+    #- source environmentSetup.sh && waitForAVD
+  override:
+    # disabled connected tests until we have some (cases Robolectric can't cover)
+    #- ./gradlew connectedAndroidTest -PdisablePreDex
+    # copy the test reports to artifacts
+    - cp -r app/build/reports $CIRCLE_ARTIFACTS
+    # copy the lint results to artifacts
+    - cp -r app/build/outputs/ $CIRCLE_ARTIFACTS
+    # copy the test results to the test results directory.
+    - cp -r app/build/test-results/release $CIRCLE_TEST_REPORTS
+    # temporarily disabled while
+    #- cp -r app/build/outputs/androidTest-results/connected $CIRCLE_TEST_REPORTS
