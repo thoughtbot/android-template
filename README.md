@@ -9,6 +9,10 @@ A [cookiecutter](https://github.com/audreyr/cookiecutter) :cookie: template for 
 - Some of our favorite and most often used [dependencies](https://github.com/thoughtbot/android-template/blob/master/%7B%7B%20cookiecutter.repo_name%20%7D%7D/app/build.gradle#L30) :family:
 - Configuration for [CircleCI](https://circleci.com) :large_blue_circle:
 
+## Optional Dependencies
+- [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid) :arrows_clockwise:
+- [Calligraphy](https://github.com/chrisjenx/Calligraphy)- Library for custom fonts :black_nib:
+
 ## Usage
 
 Install cookiecutter (via homebrew on mac):
