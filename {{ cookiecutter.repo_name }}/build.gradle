@@ -1,13 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+{% if cookiecutter.language == "kotlin" -%}
+  ext.kotlin_version = '1.0.6'
+{%- endif %}
   repositories {
     jcenter()
   }
 
   dependencies {
     classpath 'com.android.tools.build:gradle:2.1.2'
+
+    {% if cookiecutter.language == "java" -%}
     classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    {%- elif cookiecutter.language == "kotlin" -%}
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    {%- endif %}
 
     // NOTE: Do not place your application dependencies here;
     // they belong in the individual module build.gradle files

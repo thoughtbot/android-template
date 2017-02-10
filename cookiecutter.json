@@ -4,6 +4,7 @@
     "company_name": "thoughtbot",
     "package_name": "com.{{cookiecutter.company_name | lower }}.{{ cookiecutter.project_name | lower }}",
     "package_path": "{{ cookiecutter.package_name | replace('.', '/') }}",
+    "language": ["java", "kotlin"],
     "use_rx": "yes",
     "use_custom_fonts": "yes",
 
@@ -13,4 +14,3 @@
         "gradle/wrapper/gradle-wrapper.jar"
     ]
 }
-
