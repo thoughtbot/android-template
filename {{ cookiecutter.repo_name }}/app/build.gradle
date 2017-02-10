@@ -23,10 +23,14 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+
+  {% if cookiecutter.language == "java" -%}
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+  {%- endif  %}
+
   lintOptions {
     abortOnError false
   }
