@@ -14,6 +14,17 @@ A [cookiecutter](https://github.com/audreyr/cookiecutter) :cookie: template for 
 - [RxJava](https://github.com/ReactiveX/RxJava) and [RxAndroid](https://github.com/ReactiveX/RxAndroid) :arrows_clockwise:
 - [Calligraphy](https://github.com/chrisjenx/Calligraphy)- Library for custom fonts :black_nib:
 
+
+## Kotlin
+If you're one of the cool kids :sunglasses: whose writing their android apps in
+[Kotlin](https://kotlinlang.org/), don't worry, we've got you covered too. We've
+added an option for `language` so you can select whether to set up the project
+using `java` or `kotlin`
+
+Note: If you select `java` we also include
+[Retrolambda](https://github.com/evant/gradle-retrolambda) and support for the
+jack compiler so you can take advantage of all of Java 8's glory.
+
 ## Usage
 
 Install cookiecutter (via homebrew on mac):
