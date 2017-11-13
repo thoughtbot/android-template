@@ -31,7 +31,8 @@ android {
 }
 
 ext {
-  supportLibraryVersion = '25.4.0'
+  supportLibraryVersion = '27.0.1'
+  retrofitVersion = '2.1.0'
 }
 
 dependencies {
@@ -61,12 +62,12 @@ dependencies {
   androidTestCompile "com.android.support:support-annotations:${supportLibraryVersion}"
 
   //networking
-  compile 'com.squareup.retrofit2:retrofit:2.0.0'
-  compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-  compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+  compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+  compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
   {% if cookiecutter.use_rx == 'yes' -%}
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+  compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
   {%- endif %}
+  compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
 
   //image caching and downloading
   compile 'com.squareup.picasso:picasso:2.5.2'
