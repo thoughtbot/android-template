@@ -67,7 +67,7 @@ dependencies {
   {% if cookiecutter.use_rx == 'yes' -%}
   compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
   {%- endif %}
-  compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+  compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
 
   //image caching and downloading
   compile 'com.squareup.picasso:picasso:2.5.2'
