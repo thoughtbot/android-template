@@ -78,10 +78,4 @@ dependencies {
   implementation 'io.reactivex:rxandroid:1.1.0'
   implementation 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
   {%- endif %}
-
-
-  {% if cookiecutter.use_custom_fonts == 'yes' -%}
-  //custom fonts
-  implementation 'uk.co.chrisjenx:calligraphy:2.1.0'
-  {%- endif %}
 }
