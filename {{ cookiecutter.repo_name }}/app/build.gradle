@@ -18,6 +18,13 @@ android {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+    debug {
+      applicationIdSuffix ".debug"
+    }
+    staging {
+      applicationIdSuffix ".staging"
+      signingConfig signingConfigs.debug
+    }
   }
 
   lintOptions {
